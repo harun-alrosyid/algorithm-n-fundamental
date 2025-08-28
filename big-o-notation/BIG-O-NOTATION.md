@@ -1,10 +1,29 @@
 # Big O Notation
-Big o notation is how to measure algothm, how  perfomance or time excute some algorithm can as it increaes input. 
+
+**Big-O is a way to measure how fast or slow an algorithm gets as the amount of data grows.**
+It doesn’t count exact seconds; it looks at the pattern: as the input grows, does the running time rise slowly, moderately, or very steeply?
+
+>Analogy: 
+>
+>Supermarket checkout. If your cart has more items, the cashier takes longer.
+>
+>Big-O asks: 
+>
+>_“How quickly will the checkout time increase if the number of items doubles?”_
+
+
 
 ## O(1) Constant Time
-is an operation that runs regardless of the input, regardless of the size of the input.
 
-Example access value from array using index
+This means: no matter how much data there is, the step takes the same amount of time.
+
+>Analogy: 
+>
+>Numbered drawers. You have a cabinet with 1 million drawers, and you KNOW you need drawer #7.
+Whether the cabinet has 10 drawers or 1 million, you still go straight to drawer 7. The time stays the same.
+
+
+Example code:
 
 ```typescript
 // TypeScript
@@ -76,11 +95,16 @@ fn main() {
 ```
 
 ## O(n) Linear Time
-is a operation runs with propotional to the size of the input.
 
-Example : find maximum value in array
+This means that work time increase in propotion of data.
+If there twice as such  data, the work will take approximately twice as long.
 
+ 
+>Analogy: 
+>
+>A teacher checks homeworh and wants to find the highscore from his 20 students, so he would also checks all 20 homework books until he find highscore in the class
 
+Example code:
 
 ```typescript
 // TypeScript
