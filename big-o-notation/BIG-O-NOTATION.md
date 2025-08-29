@@ -213,11 +213,101 @@ function firstPriceGte(prices: number[], target: number): number {
       lo = mid + 1;
     }
   }
-  return ans;
+  return prices[ans];
 }
 
 
 const priceList = [20_000, 45_000, 60_000, 90_000, 120_000, 160_000, 200_000];
 const thresholdFreeDelivery = 150_000;
 const i = firstPriceGte(priceList, thresholdFreeDelivery);
+console.log(i);
+// output : 160000
+```
+```go
+// Golang
+package main
+
+import "fmt"
+
+func firstPriceGte(prices []int, target int) int {
+  lo := 0
+  hi := len(prices) - 1
+  ans := -1
+  for lo <= hi {
+    mid := (lo + hi) / 2
+    if prices[mid] >= target {
+      ans = mid
+      hi = mid - 1
+    } else {
+      lo = mid + 1
+    }
+  }
+  return prices[ans]
+
+}   
+
+func main() {
+
+  priceList := []int{20_000, 45_000, 60_000, 90_000, 120_000, 160_000, 200_000}
+  thresholdFreeDelivery := 150_000
+  i := firstPriceGte(priceList, thresholdFreeDelivery)
+  fmt.Println(i)
+// output : 160000
+}
+```
+```python
+# Python
+def firstPriceGte(prices, target):
+    lo = 0
+    hi = len(prices) - 1
+    ans = -1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if prices[mid] >= target:
+            ans = mid
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return prices[ans] if ans != -1 else None
+
+# Pindahkan ke level global (tidak terindented)
+data = [20000, 45000, 60000, 90000, 120000, 160000, 200000]
+thresholdFreeDelivery = 150000
+
+result = firstPriceGte(data, thresholdFreeDelivery)
+print(result)
+// output : 160000
+```
+```rust
+// Rust 
+fn main() {
+  fn main() {
+    let price_list = [20_000, 45_000, 60_000, 90_000, 120_000, 160_000, 200_000];
+    let threshold_free_delivery = 150_000;
+
+    fn first_price_gte(prices: &[i32], target: i32) -> Option<i32> {
+        let mut lo = 0;
+        let mut hi = prices.len() as isize - 1;
+        let mut ans: Option<usize> = None;
+
+        while lo as isize <= hi {
+            let mid = (lo + hi as usize) / 2;
+            if prices[mid] >= target {
+                ans = Some(mid);
+                hi = mid as isize - 1;
+            } else {
+                lo = mid + 1;
+            }
+        }
+
+        ans.map(|idx| prices[idx])
+    }
+
+    match first_price_gte(&price_list, threshold_free_delivery) {
+        Some(price) => println!("{}", price),
+        None => println!("No price found"),
+    }
+}
+// output : 160000
+}
 ```
