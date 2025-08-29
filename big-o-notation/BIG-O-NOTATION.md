@@ -189,3 +189,35 @@ fn main() {
 }
 ```
 
+## O(log n) — Logarithmic time
+
+With each step, you cut the possibilities in half.
+As a result, the number of steps increases very slowly, even though the data is large.
+
+>Analogy: 
+>
+>Online shopping: find the cheapest items that are enough to qualify for free shipping.
+
+>For example, a store offers free shipping for purchases exceeding Rp150,000. You have a list of items sorted in ascending order.
+
+```typescript
+// TypeScript
+function firstPriceGte(prices: number[], target: number): number {
+  let lo = 0, hi = prices.length - 1, ans = -1;
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    if (prices[mid] >= target) {
+      ans = mid;       
+      hi = mid - 1;
+    } else {
+      lo = mid + 1;
+    }
+  }
+  return ans;
+}
+
+
+const priceList = [20_000, 45_000, 60_000, 90_000, 120_000, 160_000, 200_000];
+const thresholdFreeDelivery = 150_000;
+const i = firstPriceGte(priceList, thresholdFreeDelivery);
+```
