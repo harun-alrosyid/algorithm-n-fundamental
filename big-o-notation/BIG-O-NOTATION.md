@@ -1,3 +1,11 @@
+### Table of Contents
+
+- [Big O Notation](#big-o-notation)
+  - [O(1) Constant Time](#o1-constant-time)
+  - [O(n) Linear Time](#on-linear-time)
+  - [O(log n) — Logarithmic time](#olog-n--logarithmic-time)
+
+
 # Big O Notation
 
 **Big-O is a way to measure how fast or slow an algorithm gets as the amount of data grows.**
