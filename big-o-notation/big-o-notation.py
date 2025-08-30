@@ -14,6 +14,7 @@ data1 = [1,2,6,4,5,9,0,3]
 
 # Big O(n)
 def getMaxValue(data):
+    if not data: raise ValueError("empty array")
     max = data[0]
     for val in data:
         if val > max:
@@ -22,3 +23,25 @@ def getMaxValue(data):
 
 print(getMaxValue(data1))
 # output : 9
+
+# Big O(log n)
+
+def firstPriceGte(prices, target):
+    lo = 0
+    hi = len(prices) - 1
+    ans = -1
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        if prices[mid] >= target:
+            ans = mid
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return prices[ans] if ans != -1 else None
+
+data = [20000, 45000, 60000, 90000, 120000, 160000, 200000]
+thresholdFreeDelivery = 150000
+
+result = firstPriceGte(data, thresholdFreeDelivery)
+print(result)
+# output : 160000
