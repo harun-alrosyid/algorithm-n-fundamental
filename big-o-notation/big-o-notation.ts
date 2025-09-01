@@ -52,3 +52,34 @@ const thresholdFreeDelivery = 150_000;
 const i = firstPriceGte(priceList, thresholdFreeDelivery);
 console.log(i);
 // output : 160000
+
+// Big O(n^2)
+
+const tops: string[] = ["t-shirt", "shirt", "sweater"];
+const bottoms: string[] = ["jeans", "pants", "shorts"];
+
+function outfitCombo(tops: string[], bottoms: string[]): [string, string][] {
+  let combos: [string, string][] = [];
+  for (const t of tops) {
+    for (const b of bottoms) {
+      combos.push([t, b]);
+    }
+  }
+  return combos;
+}
+
+const combos = outfitCombo(tops, bottoms);
+
+console.log(combos);
+// output : 
+// [
+//   ["t-shirt", "jeans"], 
+//   ["t-shirt", "pants"], 
+//   ["t-shirt", "shorts"], 
+//   ["shirt", "jeans"], 
+//   ["shirt", "pants"], 
+//   ["shirt", "shorts"], 
+//   ["sweater", "jeans"], 
+//   ["sweater", "pants"], 
+//   ["sweater", "shorts"]
+//] 

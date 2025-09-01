@@ -4,7 +4,7 @@
   - [O(1) Constant Time](#o1-constant-time)
   - [O(n) Linear Time](#on-linear-time)
   - [O(log n) — Logarithmic time](#olog-n--logarithmic-time)
-
+  - [O(n^2) Quadratic Times](#on2-quadratic-times)
 
 # Big O Notation
 
@@ -31,8 +31,6 @@ This means: no matter how much data there is, the step takes the same amount of 
 Example code:
 
 ```typescript
-// TypeScript
-
 const data: number[] = [1, 2, 3, 4, 5];
 
 function getValueItem(n: number): number {
@@ -57,8 +55,6 @@ If there twice as such data, the work will take approximately twice as long.
 Example code:
 
 ```typescript
-// TypeScript
-
 const data: number[] = [1, 2, 6, 4, 5, 9, 0, 3];
 
 function getMaxValue(data: number[]): number {
@@ -87,11 +83,11 @@ As a result, the number of steps increases very slowly, even though the data is 
 > Analogy:
 >
 > Online shopping: find the cheapest items that are enough to qualify for free shipping.
-
 > For example, a store offers free shipping for purchases exceeding Rp150,000. You have a list of items sorted in ascending order.
 
+Example code:
+
 ```typescript
-// TypeScript
 function firstPriceGte(prices: number[], target: number): number | null {
   let lo = 0,
     hi = prices.length - 1,
@@ -113,6 +109,50 @@ const thresholdFreeDelivery = 150_000;
 const i = firstPriceGte(priceList, thresholdFreeDelivery);
 console.log(i);
 // output : 160000
+```
+
+## O(n^2) Quadratic Times
+
+If you double the amount data, the work/time is roughly four times as much.
+If you triple the data, the work/time is roughly nine times as much. Because, you're dealing with pair of items.
+
+> Analogy:
+>
+> Outfit mactching ( tops x bottoms )
+>
+> You will try every top with every bottom to see all combinations. If both lists are size n, combinations are n^2.
+
+Example code:
+
+```typescript
+const tops: string[] = ["t-shirt", "shirt", "sweater"];
+const bottoms: string[] = ["jeans", "pants", "shorts"];
+
+function outfitCombo(tops: string[], bottoms: string[]): [string, string][] {
+  let combos: [string, string][] = [];
+  for (const t of tops) {
+    for (const b of bottoms) {
+      combos.push([t, b]);
+    }
+  }
+  return combos;
+}
+
+const combos = outfitCombo(tops, bottoms);
+
+console.log(combos);
+// output : 
+// [
+//   ["t-shirt", "jeans"], 
+//   ["t-shirt", "pants"], 
+//   ["t-shirt", "shorts"], 
+//   ["shirt", "jeans"], 
+//   ["shirt", "pants"], 
+//   ["shirt", "shorts"], 
+//   ["sweater", "jeans"], 
+//   ["sweater", "pants"], 
+//   ["sweater", "shorts"]
+//] 
 ```
 
 More code examples : [TypeScript](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.ts) | [Go](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.go) | [Python](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.py) | [Rust](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.rs)
