@@ -45,3 +45,18 @@ thresholdFreeDelivery = 150000
 result = firstPriceGte(data, thresholdFreeDelivery)
 print(result)
 # output : 160000
+
+# Big O(n^2)
+tops = ["t-shirt", "shirt", "sweater"]
+bottoms = ["jeans", "pants", "shorts"]
+
+def outfitCombo(tops, bottoms):
+    combos = []
+    for t in tops:
+        for b in bottoms:
+            combos.append([t, b])
+    return combos
+
+print(outfitCombo(tops, bottoms))
+# output :
+# [['t-shirt', 'jeans'], ['t-shirt', 'pants'], ['t-shirt', 'shorts'], ['shirt', 'jeans'], ['shirt', 'pants'], ['shirt', 'shorts'], ['sweater', 'jeans'], ['sweater', 'pants'], ['sweater', 'shorts']]

@@ -141,18 +141,18 @@ function outfitCombo(tops: string[], bottoms: string[]): [string, string][] {
 const combos = outfitCombo(tops, bottoms);
 
 console.log(combos);
-// output : 
-// [
-//   ["t-shirt", "jeans"], 
-//   ["t-shirt", "pants"], 
-//   ["t-shirt", "shorts"], 
-//   ["shirt", "jeans"], 
-//   ["shirt", "pants"], 
-//   ["shirt", "shorts"], 
-//   ["sweater", "jeans"], 
-//   ["sweater", "pants"], 
-//   ["sweater", "shorts"]
-//] 
+/* output : 
+[
+  ["t-shirt", "jeans"], 
+  ["t-shirt", "pants"], 
+  ["t-shirt", "shorts"], 
+  ["shirt", "jeans"], 
+  ["shirt", "pants"], 
+  ["shirt", "shorts"], 
+  ["sweater", "jeans"], 
+  ["sweater", "pants"], 
+  ["sweater", "shorts"]
+] */
 ```
 
 More code examples : [TypeScript](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.ts) | [Go](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.go) | [Python](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.py) | [Rust](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.rs)

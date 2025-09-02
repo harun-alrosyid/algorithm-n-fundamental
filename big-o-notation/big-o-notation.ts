@@ -1,4 +1,3 @@
-
 // Big O(1)
 const data = [1, 2, 3, 4, 5];
 
@@ -11,34 +10,34 @@ console.log(getValueItem(2));
 console.log(getValueItem(4));
 // output : 5
 
-const data1 : number[] = [1,2,6,4,5,9,0,3]
+const data1: number[] = [1, 2, 6, 4, 5, 9, 0, 3];
 
 // Big O(n)
-function getMaxValue(data:number[]):number{	
-    if (data.length === 0) throw new Error("empty array");
-	let max :number =data[0]
-    
-    for (let i=0; i < data.length ;i++ ){
-    
-        if(data[i] > max){
-            max =data[i]
-        }
+function getMaxValue(data: number[]): number {
+  if (data.length === 0) throw new Error("empty array");
+  let max: number = data[0];
+
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] > max) {
+      max = data[i];
     }
+  }
 
-
-    return max
+  return max;
 }
 
-console.log(getMaxValue(data1))
+console.log(getMaxValue(data1));
 // output : 9
 
 // Big O(log n)
-function firstPriceGte(prices: number[], target: number): number|null {
-  let lo = 0, hi = prices.length - 1, ans = -1;
+function firstPriceGte(prices: number[], target: number): number | null {
+  let lo = 0,
+    hi = prices.length - 1,
+    ans = -1;
   while (lo <= hi) {
     const mid = Math.floor((lo + hi) / 2);
     if (prices[mid] >= target) {
-      ans = mid;       
+      ans = mid;
       hi = mid - 1;
     } else {
       lo = mid + 1;
@@ -71,15 +70,16 @@ function outfitCombo(tops: string[], bottoms: string[]): [string, string][] {
 const combos = outfitCombo(tops, bottoms);
 
 console.log(combos);
-// output : 
-// [
-//   ["t-shirt", "jeans"], 
-//   ["t-shirt", "pants"], 
-//   ["t-shirt", "shorts"], 
-//   ["shirt", "jeans"], 
-//   ["shirt", "pants"], 
-//   ["shirt", "shorts"], 
-//   ["sweater", "jeans"], 
-//   ["sweater", "pants"], 
-//   ["sweater", "shorts"]
-//] 
+
+/*output : 
+[
+  ["t-shirt", "jeans"], 
+  ["t-shirt", "pants"], 
+  ["t-shirt", "shorts"], 
+  ["shirt", "jeans"], 
+  ["shirt", "pants"], 
+  ["shirt", "shorts"], 
+  ["sweater", "jeans"], 
+  ["sweater", "pants"], 
+  ["sweater", "shorts"]
+]*/
