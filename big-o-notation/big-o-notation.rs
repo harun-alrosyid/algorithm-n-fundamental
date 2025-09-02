@@ -13,9 +13,9 @@ fn main() {
     get_value_item(4);
     // output : 5
 
-    let data = [1,2,6,4,5,9,0,3];
-
+    
 // Big O(n)
+    let data = [1,2,6,4,5,9,0,3];
     let get_max_value = |data: [i32; 8]| {
         let mut max = data[0];
         for val in data {
@@ -32,24 +32,29 @@ fn main() {
 // Big O(log n)
     let price_list = [20000, 45000, 60000, 90000, 120000, 160000, 200000];
     let threshold_free_delivery = 150000;
-    let first_price_gte = |price_list: [i32; 7], threshold_free_delivery: i32| {
-        let mut start = 0;
-        let mut end = price_list.len() - 1;
-        let mut ans: i32 = -1
-        while start <= end { 
-             let mut mid = ((start + end) / 2).floor();
-            if price_list[mid] >= threshold_free_delivery {
-                ans = mid;
+    let first_price_gte = |price_list: [i32; 7], threshold: i32| {
+        let mut start: i32 = 0;
+        let mut end: i32 = price_list.len() as i32 - 1;
+        let mut ans: usize = 0; 
+
+        while start <= end {
+            let mid = (start + end) / 2;
+            let mid_idx = mid as usize;
+
+            if price_list[mid_idx] >= threshold {
+                ans = mid_idx;
+                if mid == 0 { break; } 
                 end = mid - 1;
             } else {
                 start = mid + 1;
             }
-            mid = (start + end) / 2;
         }
-        return price_list[ans];
+
+        price_list[ans]
     };
+
     println!("{}", first_price_gte(price_list, threshold_free_delivery));
-    // output : 2
+    // output : 160000
 
 // Big O(n^2)
     let tops = ["t-shirt", "shirt", "sweater"];
