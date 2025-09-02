@@ -45,7 +45,7 @@ function firstPriceGte(prices: number[], target: number): number | null {
   }
   return ans === -1 ? null : prices[ans];
 }
-
+  
 const priceList = [20_000, 45_000, 60_000, 90_000, 120_000, 160_000, 200_000];
 const thresholdFreeDelivery = 150_000;
 const i = firstPriceGte(priceList, thresholdFreeDelivery);

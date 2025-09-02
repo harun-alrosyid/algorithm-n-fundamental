@@ -28,5 +28,42 @@ fn main() {
     };
     println!("{}",  get_max_value(data));
     // output : 9
-    
+
+// Big O(log n)
+    let price_list = [20000, 45000, 60000, 90000, 120000, 160000, 200000];
+    let threshold_free_delivery = 150000;
+    let first_price_gte = |price_list: [i32; 7], threshold_free_delivery: i32| {
+        let mut start = 0;
+        let mut end = price_list.len() - 1;
+        let mut ans: i32 = -1
+        while start <= end { 
+             let mut mid = ((start + end) / 2).floor();
+            if price_list[mid] >= threshold_free_delivery {
+                ans = mid;
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+            mid = (start + end) / 2;
+        }
+        return price_list[ans];
+    };
+    println!("{}", first_price_gte(price_list, threshold_free_delivery));
+    // output : 2
+
+// Big O(n^2)
+    let tops = ["t-shirt", "shirt", "sweater"];
+    let bottoms = ["jeans", "pants", "shorts"];
+    let outfit_combo = |tops: [&str], bottoms: [&str]| {
+        let mut combos = Vec::new();
+        for t in tops {
+            for b in bottoms {
+                combos.push([t, b]);
+            }
+        }
+        return combos;
+    };
+    println!("{}", outfit_combo(tops, bottoms));
+    // output :
+    // [[t-shirt jeans] [t-shirt pants] [t-shirt shorts] [shirt jeans] [shirt pants] [shirt shorts] [sweater jeans] [sweater pants] [sweater shorts]]
 }

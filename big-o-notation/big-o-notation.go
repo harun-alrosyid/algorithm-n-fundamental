@@ -43,16 +43,6 @@ func firstPriceGte(prices []int, target int) int {
 
 }
 
-// function outfitCombo(tops: string[], bottoms: string[]): [string, string][] {
-//   let combos: [string, string][] = [];
-//   for (const t of tops) {
-//     for (const b of bottoms) {
-//       combos.push([t, b]);
-//     }
-//   }
-//   return combos;
-// }
-
 func outfitCombo(tops []string, bottoms []string) [][]string {
 	combos := [][]string{}
 	for _, t := range tops {
