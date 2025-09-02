@@ -43,6 +43,26 @@ func firstPriceGte(prices []int, target int) int {
 
 }
 
+// function outfitCombo(tops: string[], bottoms: string[]): [string, string][] {
+//   let combos: [string, string][] = [];
+//   for (const t of tops) {
+//     for (const b of bottoms) {
+//       combos.push([t, b]);
+//     }
+//   }
+//   return combos;
+// }
+
+func outfitCombo(tops []string, bottoms []string) [][]string {
+	combos := [][]string{}
+	for _, t := range tops {
+		for _, b := range bottoms {
+			combos = append(combos, []string{t, b})
+		}
+	}
+	return combos
+}
+
 func main() {
 
 	fmt.Println(getValueItem(2))
@@ -54,9 +74,17 @@ func main() {
 	fmt.Println(getMaxValue(data1))
 	// output : 9
 
+	// Big O(log n)
 	priceList := []int{20_000, 45_000, 60_000, 90_000, 120_000, 160_000, 200_000}
 	thresholdFreeDelivery := 150_000
 	i := firstPriceGte(priceList, thresholdFreeDelivery)
 	fmt.Println(i)
 	// output : 160000
+
+	// Big O(n^2)
+	tops := []string{"t-shirt", "shirt", "sweater"}
+	bottoms := []string{"jeans", "pants", "shorts"}
+	fmt.Println(outfitCombo(tops, bottoms))
+	// output :
+	// [[t-shirt jeans] [t-shirt pants] [t-shirt shorts] [shirt jeans] [shirt pants] [shirt shorts] [sweater jeans] [sweater pants] [sweater shorts]]
 }
