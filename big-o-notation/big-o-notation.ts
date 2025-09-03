@@ -83,3 +83,42 @@ console.log(combos);
   ["sweater", "pants"], 
   ["sweater", "shorts"]
 ]*/
+
+// Big O(2^n)
+
+function simulatePandemic(
+  generations: number,
+  reproductionNumber: number = 2
+): { totalInfected: number; detail: number[] } {
+  // Base case: patient zero
+  let totalInfected = 1;
+  let newlyInfected = 1;
+  const detail: number[] = [1]; // Day-0: 1 people
+
+  // Simulation every day
+  for (let day = 1; day <= generations; day++) {
+    // O(C^n): Every people will infection 2 new people
+    newlyInfected = newlyInfected * reproductionNumber;
+    totalInfected += newlyInfected;
+    detail.push(newlyInfected);
+    
+    // (Optional) handle to much data
+    if (totalInfected > 1_000_000) {
+      console.log(`Health system collapses! Virus spreads exponentially after days ${day}!`);
+      break;
+    }
+  }
+
+  return { totalInfected, detail };
+}
+
+const nGenerations = 10; 
+const R0 = 2;
+
+const result = simulatePandemic(nGenerations, R0);
+
+console.log(`In ${nGenerations} day, Total Infection: ${result.totalInfected.toLocaleString()} people.`);
+console.log(`Growth infection per day: [${result.detail.join(", ")}]`);
+
+// In 10 day, Total Infection: 2,047 people
+// Detail Growth infection per day: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]

@@ -5,6 +5,7 @@
   - [O(n) Linear Time](#on-linear-time)
   - [O(log n) — Logarithmic time](#olog-n--logarithmic-time)
   - [O(n^2) Quadratic Times](#on2-quadratic-times)
+  - [O (2^n) Exponential Time](#o-2n-exponential-time)
 
 # Big O Notation
 
@@ -154,5 +155,58 @@ console.log(combos);
   ["sweater", "shorts"]
 ] */
 ```
+
+## O (2^n) Exponential Time
+
+This signifies that the execution time of an algorithm grows exponentially with the size of the input, 'n'.
+
+> Analogy:
+> Imagine that on day 0, there is one people (n=0) infected with COVID-19 (patient zero). This virus has an R0 (R-naught) of 2. This means that, on average, one infected people will infect two other people.
+>
+>- n is the day (generation of propagation).
+>- C is the R0 (Reproduction Number) of the virus, in this example C = 2.
+
+Example code:
+
+```typescript
+function simulatePandemic(
+  generations: number,
+  reproductionNumber: number = 2
+): { totalInfected: number; detail: number[] } {
+  // Base case: patient zero
+  let totalInfected = 1;
+  let newlyInfected = 1;
+  const detail: number[] = [1]; // Day-0: 1 people
+
+  // Simulation every day
+  for (let day = 1; day <= generations; day++) {
+    // O(C^n): Every people will infection 2 new people
+    newlyInfected = newlyInfected * reproductionNumber;
+    totalInfected += newlyInfected;
+    detail.push(newlyInfected);
+    
+    // (Optional) handle to much data
+    if (totalInfected > 1_000_000) {
+      console.log(`Health system collapses! Virus spreads exponentially after days ${day}!`);
+       break;;
+    }
+  }
+
+  return { totalInfected, detail };
+}
+
+const nGenerations = 10; 
+const R0 = 2;
+
+const result = simulatePandemic(nGenerations, R0);
+
+console.log(`In ${nGenerations} day, Total Infection: ${result.totalInfected.toLocaleString()} people.`);
+console.log(`Growth infection per day: [${result.detail.join(", ")}]`);
+
+// In 10 day, Total Infection: 2,047 people
+// Detail Growth infection per day: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+```
+
+
 
 More code examples : [TypeScript](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.ts) | [Go](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.go) | [Python](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.py) | [Rust](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/big-o-notation.rs)
