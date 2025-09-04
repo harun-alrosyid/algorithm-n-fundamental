@@ -60,3 +60,22 @@ def outfitCombo(tops, bottoms):
 print(outfitCombo(tops, bottoms))
 # output :
 # [['t-shirt', 'jeans'], ['t-shirt', 'pants'], ['t-shirt', 'shorts'], ['shirt', 'jeans'], ['shirt', 'pants'], ['shirt', 'shorts'], ['sweater', 'jeans'], ['sweater', 'pants'], ['sweater', 'shorts']]
+
+# Big O(2^N)
+def simulatePandemic(generations, reproductionNumber):
+    totalInfected = 1
+    newlyInfected = 1
+    detail = [0]
+    for _ in range(generations):
+       newlyInfected = newlyInfected * reproductionNumber
+       totalInfected += newlyInfected
+       detail.append(newlyInfected)
+       if totalInfected >= 1000000:
+           break
+    return totalInfected, detail
+
+nGenerations = 10
+reproductionNumber = 2
+print(simulatePandemic(nGenerations, reproductionNumber))
+# output :
+# (2047, [0, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024])
