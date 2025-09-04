@@ -53,6 +53,26 @@ func outfitCombo(tops []string, bottoms []string) [][]string {
 	return combos
 }
 
+// Big O(2^N)
+func simulatePandemic(generations int, reproductionNumber int) (totalInfected int, detail []int) {
+	infected := 1
+	newlyInfected := 1
+	detail = []int{0}
+
+	for i := 0; i < generations; i++ {
+		newlyInfected = newlyInfected * reproductionNumber
+		infected += newlyInfected
+		detail = append(detail, newlyInfected)
+
+		if infected >= 1_000_000 {
+			fmt.Println("Health system collapses! Virus spreads exponentially after days: ", infected)
+			break
+		}
+	}
+	return infected, detail
+
+}
+
 func main() {
 
 	fmt.Println(getValueItem(2))
@@ -77,4 +97,10 @@ func main() {
 	fmt.Println(outfitCombo(tops, bottoms))
 	// output :
 	// [[t-shirt jeans] [t-shirt pants] [t-shirt shorts] [shirt jeans] [shirt pants] [shirt shorts] [sweater jeans] [sweater pants] [sweater shorts]]
+
+	// Big O(2^N)
+	nGenerations := 10
+	reproductionNumber := 2
+	fmt.Println(simulatePandemic(nGenerations, reproductionNumber))
+
 }
