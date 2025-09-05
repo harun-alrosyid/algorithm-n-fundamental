@@ -71,4 +71,32 @@ fn main() {
     println!("{}", outfit_combo(tops, bottoms));
     // output :
     // [[t-shirt jeans] [t-shirt pants] [t-shirt shorts] [shirt jeans] [shirt pants] [shirt shorts] [sweater jeans] [sweater pants] [sweater shorts]]
+
+
+// Big O(2^n)
+
+    let simulate_pandemic = |generations: i32, reproduction_number: i32| {
+        let mut total_infected = 1;
+        let mut newly_infected = 1;
+        let mut detail = Vec::new();
+
+        for _ in 0..generations {
+            newly_infected = newly_infected * reproduction_number;
+            total_infected += newly_infected;
+            detail.push(newly_infected);
+            if total_infected >= 1_000_000 {
+                break;
+            }
+        }
+        (total_infected, detail)
+    };
+
+    let (total, detail) = simulate_pandemic(10, 2);
+    println!("Total infected: {}", total);
+    println!("Details: {:?}", detail);
+
+// output :
+// Total infected: 2047
+// Details: [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]
+
 }
