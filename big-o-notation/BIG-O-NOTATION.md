@@ -277,6 +277,19 @@ Choosing the right tool for the job. Here is how common operations perform acros
 
 Ready to practice? Check out these common coding interview problems solved efficiently:
 
+### 1. Reverse String
+Reversing a string is the process of taking a sequence of characters and flipping it backwards.
+- **Complexity**: $O(n)$ Time | $O(n)$ Space.
+- **Analogy**: Imagine you have a stack of colorful blocks spelling **C-A-T**. Reversing it is like taking them off one by one and making a new stack, which then reads **T-A-C**.
+- [View Code](https://github.com/harun-alrosyid/algorithm-n-fundamental/tree/main/big-o-notation/exercises/reverse_string)
+
+### 2. Is Palindrome
+A palindrome is a word or phrase that reads the same forwards and backwards.
+- **Complexity**: $O(n)$ Time | $O(1)$ Space (if using two pointers).
+- **Analogy**: Holding a word up to a **mirror**. If the reflection looks exactly like the original (e.g., "RACECAR"), it's a palindrome!
+- [View Code](https://github.com/harun-alrosyid/algorithm-n-fundamental/tree/main/big-o-notation/exercises/is_palindrome)
+
+### Others
 - [Two Sum](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/exercises/two_sum/two_sum.ts) - Using a Hash Map for O(n) time.
 - [Valid Anagram](https://github.com/harun-alrosyid/algorithm-n-fundamental/blob/main/big-o-notation/exercises/valid_anagram/valid_anagram.ts) - Frequency counters and O(n) logic.
 
